@@ -19,7 +19,8 @@ import { IPixiApplicationOptions, IEdgePosition, ILineSourceTarget, ILineDetails
 @Component({
 	selector: 'pixi-canvas',
 	templateUrl: './pixi-canvas.component.html',
-	styleUrls: ['./pixi-canvas.component.scss']
+	styleUrls: ['./pixi-canvas.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PixiCanvasComponent implements AfterViewInit, OnDestroy {
 	private devicePixelRatio = window.devicePixelRatio || 1;
@@ -44,7 +45,6 @@ export class PixiCanvasComponent implements AfterViewInit, OnDestroy {
 	container: ElementRef;
 
 	pixiApp: PIXI.Application = null;
-	renderRequestId = undefined;
 	rows: PIXI.Container;
 	screenHeight: number;
 
@@ -103,18 +103,7 @@ export class PixiCanvasComponent implements AfterViewInit, OnDestroy {
 			});
 		});
 
-		this.requestRender();
 		this.container.nativeElement.appendChild(this.pixiApp.view);
-	}
-
-	private requestRender() {
-		if (this.renderRequestId) {
-			return;
-		}
-		this.renderRequestId = window.requestAnimationFrame(() => {
-			this.pixiApp.render();
-			this.renderRequestId = undefined;
-		});
 	}
 
 	private drawStage(): void {
