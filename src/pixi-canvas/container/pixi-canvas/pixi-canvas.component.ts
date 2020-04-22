@@ -33,7 +33,7 @@ export class PixiCanvasComponent implements AfterViewInit, OnDestroy {
 	private defaults: IPixiApplicationOptions = {
 		transparent: true,
 		antialias: false,
-		resolution: this.devicePixelRatio,
+		resolution: 1 / this.devicePixelRatio,
 		autoDensity: true,
 		autoStart: true
 	};
