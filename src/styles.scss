@@ -1,0 +1,24 @@
+html {
+	font-size: 16px;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    ng-component {
+        display: block;
+    }
+
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
