@@ -163,7 +163,9 @@ export class PixiCanvasComponent implements AfterViewInit, OnDestroy {
 			graphics.name = row[0].id;
 			this.addText(graphics, row[0].id, positionAndDimension.x, positionAndDimension.y);
 
+			/** Mark element as not renderable */
 			// rectangle.renderable = false;
+
 			this.rows.addChild(graphics);
 		});
 
