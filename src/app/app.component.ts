@@ -8,5 +8,4 @@ import mock from './mocks/data.json';
 })
 export class AppComponent {
 	data = mock;
-
 }
